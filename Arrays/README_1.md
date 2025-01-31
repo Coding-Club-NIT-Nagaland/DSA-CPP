@@ -1,5 +1,6 @@
 # Array Operations in C++
 
+
 This project provides a simple and flexible C++ program for performing various operations on arrays, including displaying elements, summing them, finding the maximum value, and searching for a target value.
 
 ## Features
@@ -53,4 +54,5 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 Happy Coding!
 
-By Hrishabh 
+###Best of Luck
+**By Hrishabh**
