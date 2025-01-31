@@ -54,5 +54,5 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 Happy Coding!
 
-###Best of Luck
+## Best of Luck
 **By Hrishabh**
