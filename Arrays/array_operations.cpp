@@ -5,41 +5,37 @@ using namespace std;
 class ArrayOperations {
 public:
     void displayArray(const vector<int>& arr) {
-        int n=arr.size();
         cout << "Array elements: ";
-        for (int i=0;i<n;i++) {
-            cout << arr[i] << " ";
+        for (int num : arr) {
+            cout << num << " ";
         }
         cout << endl;
     }
 
     int sumArray(const vector<int>& arr) {
-        int n=arr.size();
         int sum = 0;
-        for (int i=0;i<n;i++) {
-            sum += arr[i];
+        for (int num : arr) {
+            sum += num;
         }
         return sum;
     }
 
     int findMax(const vector<int>& arr) {
-        int n=arr.size();
-        if (n==0) {
+        if (arr.empty()) {
             throw runtime_error("Array is empty!");
         }
         int maxVal = arr[0];
-        for (int i=0;i<n;i++) {
-            if (arr[i] > maxVal) {
-                maxVal = arr[i];
+        for (int num : arr) {
+            if (num > maxVal) {
+                maxVal = num;
             }
         }
         return maxVal;
     }
 
     bool searchArray(const vector<int>& arr, int target) {
-        int n=arr.size();
-        for (int i=0;i<n;i++) {
-            if (arr[i] == target) {
+        for (int num : arr) {
+            if (num == target) {
                 return true;
             }
         }
@@ -49,11 +45,7 @@ public:
 
 int main() {
     ArrayOperations arrayOps;
-    int a[] = {1, 2, 3, 4, 5, 6, 7};
-    int n=sizeof(a)/sizeof(a[0]);
-    //vector can't be initialised as initialiser list 
-    //vector<int> arr = {1, 2, 3, 4, 5, 6, 7};
-    vector<int> arr(a,a+n);
+    vector<int> arr = {1, 2, 3, 4, 5, 6, 7};
 
     arrayOps.displayArray(arr);
 
