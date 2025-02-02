@@ -1,12 +1,22 @@
 #include <iostream>
 #include <vector>
+#include<algorithm>
 using namespace std;
 
 class ArrayOperations {
 public:
+    void Array_reverse(vector<int>& arr){
+        int n=arr.size();
+        int i=0;
+        int j=n-1;
+        while(i<=j){
+            swap(arr[i],arr[j]);
+            i++;
+            j--;
+        }
+    }
     void displayArray(const vector<int>& arr) {
         int n=arr.size();
-        cout << "Array elements: ";
         for (int i=0;i<n;i++) {
             cout << arr[i] << " ";
         }
@@ -54,7 +64,7 @@ int main() {
     //vector can't be initialised as initialiser list 
     //vector<int> arr = {1, 2, 3, 4, 5, 6, 7};
     vector<int> arr(a,a+n);
-
+    cout << "Array elements: ";
     arrayOps.displayArray(arr);
 
     cout << "Sum of elements: " << arrayOps.sumArray(arr) << endl;
@@ -68,6 +78,9 @@ int main() {
     int target = 4;
     cout << "Is " << target << " in the array? " 
          << (arrayOps.searchArray(arr, target) ? "Yes" : "No") << endl;
+    arrayOps.Array_reverse(arr);
+     cout << "Array elements in revrse : ";
+    arrayOps.displayArray(arr);
 
     return 0;
 }
