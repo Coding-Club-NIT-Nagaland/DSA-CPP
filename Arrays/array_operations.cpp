@@ -46,6 +46,20 @@ public:
         return maxVal;
     }
 
+    int findMin(const vector<int>& arr) {
+        int n=arr.size();
+        if (n==0) {
+            throw runtime_error("Array is empty!");
+        }
+        int minVal = arr[0];
+        for (int i=0;i<n;i++) {
+            if (arr[i] < minVal) {
+                minVal = arr[i];
+            }
+        }
+        return minVal;
+    }
+
     bool searchArray(const vector<int>& arr, int target) {
         int n=arr.size();
         for (int i=0;i<n;i++) {
@@ -55,6 +69,53 @@ public:
         }
         return false;
     }
+    void printSubarray(vector<int>& arr){
+        int n = arr.size();
+
+        for(int st=0 ; st<n ; st++){
+            for(int end= st; end<n ; end++){
+                for(int k = st ; k<=end ; k++){
+                    cout<<arr[k];
+                }
+                cout<<" ";
+            }
+            cout<<endl;
+        }
+    }
+    int maxSubarraySum(vector<int>& arr){
+        int n = arr.size();
+        int arrSum = 0 , maxSum = INT16_MIN;
+        for(int i = 0 ; i<n ; i++){
+            arrSum += arr[i];
+            maxSum = max(arrSum , maxSum);
+            if(arrSum<0){
+                arrSum = 0;
+            }
+        }
+        return maxSum;
+    }
+
+    void sortAscending(vector<int>& arr){
+        int n = arr.size();
+        for(int i =0 ; i<n-1; i++){
+            for(int j=0 ; j<n-i-1 ;j++){
+                if(arr[j]>arr[j+1]){
+                    swap(arr[j],arr[j+1]);
+                }
+            }
+        }
+    }
+    void sortDescending(vector<int>& arr){
+        int n = arr.size();
+        for(int i =0 ; i<n; i++){
+            for(int j=0 ; j<n-i-1 ;j++){
+                if(arr[j]<arr[j+1]){
+                    swap(arr[j],arr[j+1]);
+                }
+            }
+        }
+    }
+
 };
 
 int main() {
@@ -81,6 +142,18 @@ int main() {
     arrayOps.Array_reverse(arr);
      cout << "Array elements in revrse : ";
     arrayOps.displayArray(arr);
+    cout<<"Subarray elements : "<<endl;
+    arrayOps.printSubarray(arr);
+    cout<<"Maximum Subarray Sum : "<<arrayOps.maxSubarraySum(arr)<<endl;
+    cout<<"Minimum element : "<<arrayOps.findMin(arr)<<endl;
+
+    arrayOps.sortAscending(arr);
+    cout<<"Element in Accending order : ";
+    arrayOps.displayArray(arr);
+    arrayOps.sortDescending(arr);
+    cout<<"Element in decending order : ";
+    arrayOps.displayArray(arr);
+    
 
     return 0;
 }
