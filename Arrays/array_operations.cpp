@@ -95,7 +95,7 @@ public:
         return maxSum;
     }
 
-    void sortAccending(vector<int>& arr){
+    void sortAscending(vector<int>& arr){
         int n = arr.size();
         for(int i =0 ; i<n; i++){
             for(int j=0 ; j<n-i-1 ;j++){
@@ -105,7 +105,7 @@ public:
             }
         }
     }
-    void sortDecending(vector<int>& arr){
+    void sortDescending(vector<int>& arr){
         int n = arr.size();
         for(int i =0 ; i<n; i++){
             for(int j=0 ; j<n-i-1 ;j++){
@@ -147,10 +147,10 @@ int main() {
     cout<<"Maximum Subarray Sum : "<<arrayOps.maxSubarraySum(arr)<<endl;
     cout<<"Minimum element : "<<arrayOps.findMin(arr)<<endl;
 
-    arrayOps.sortAccending(arr);
+    arrayOps.sortAscending(arr);
     cout<<"Element in Accending order : ";
     arrayOps.displayArray(arr);
-    arrayOps.sortDecending(arr);
+    arrayOps.sortDescending(arr);
     cout<<"Element in decending order : ";
     arrayOps.displayArray(arr);
     
