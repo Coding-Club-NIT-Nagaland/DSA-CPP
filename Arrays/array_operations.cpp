@@ -46,15 +46,44 @@ public:
         return maxVal;
     }
 
-    bool searchArray(const vector<int>& arr, int target) {
-        int n=arr.size();
-        for (int i=0;i<n;i++) {
-            if (arr[i] == target) {
-                return true;
+    void sort (vector<int>& arr ) {
+        int n = arr.size() ;
+        for(int i = 0 ; i < n-1 ; i++ ) {
+            bool swapped = false ;
+            for(int j = 0 ; j < n-i-1 ; j++ ) {
+                if( arr[j] > arr[j+1] ) {
+                    swap( arr[j] , arr[j+1]) ;
+                    swapped = true ;
+                }
+            }
+            if( swapped == false ) {
+                break ;
             }
         }
-        return false;
     }
+
+    bool search_element(vector<int>& arr , int key ) {
+        sort(arr) ;
+        int n = arr.size() ;
+        int start = 0 ;
+        int end = n-1 ;
+        int mid = start + (end-start)/2 ;
+        while(start <= end ) {
+            if(arr[mid] == key ) {
+                return true ;
+            }
+            if(arr[mid] > key ) {
+                end = mid - 1 ;
+            }
+            if(arr[mid] < key ) {
+                start = mid + 1 ;
+            }
+            mid = start + (end - start)/2 ;
+
+        }
+        return false ;
+    }
+    
 };
 
 int main() {
@@ -77,7 +106,7 @@ int main() {
 
     int target = 4;
     cout << "Is " << target << " in the array? " 
-         << (arrayOps.searchArray(arr, target) ? "Yes" : "No") << endl;
+         << (arrayOps.search_element(arr, target) ? "Yes" : "No") << endl;
     arrayOps.Array_reverse(arr);
      cout << "Array elements in revrse : ";
     arrayOps.displayArray(arr);
